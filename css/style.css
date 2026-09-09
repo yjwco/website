@@ -201,6 +201,7 @@ a { color: inherit; text-decoration: none; }
 .hero-section {
   position: relative;
   overflow: hidden;
+  min-height: 340px;
   background: var(--ink-2);
   color: #fff;
 }
@@ -230,9 +231,9 @@ a { color: inherit; text-decoration: none; }
   animation: float 9s ease-in-out infinite;
 }
 
-.hero-glow .g1 { width: 99px; height: 99px; background: var(--commerce); top: 40px; right: 220px; animation-delay: 0s; }
-.hero-glow .g2 { width: 84px; height: 84px; background: var(--content); bottom: 60px; right: 90px; animation-delay: 1.2s; }
-.hero-glow .g3 { width: 69px; height: 69px; background: var(--app); top: 150px; right: 60px; animation-delay: 2.4s; }
+.hero-glow .g1 { width: 99px; height: 99px; background: var(--commerce); top: 60px; right: 16%; animation-delay: 0s; }
+.hero-glow .g2 { width: 84px; height: 84px; background: var(--content); bottom: 80px; right: 7%; animation-delay: 1.2s; }
+.hero-glow .g3 { width: 69px; height: 69px; background: var(--app); top: 190px; right: 3%; animation-delay: 2.4s; }
 
 @keyframes float {
   0%, 100% { transform: translate(0, 0); }
