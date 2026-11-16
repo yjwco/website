@@ -1,0 +1,270 @@
+/* 개인정보처리방침 페이지 스타일
+   - 외부 폰트/스크립트를 쓰지 않습니다 (개인정보를 다루는 페이지이므로).
+   - 밝은 화면/어두운 화면을 기기 설정에 맞춰 자동 전환합니다. */
+
+:root {
+  --paper: #ffffff;
+  --paper-soft: #f4f5f7;
+  --ink: #1c2026;
+  --ink-soft: #4d5560;
+  --rule: #dfe2e7;
+  --brand-bg: #000000;
+  --brand-gold: #d4af37;
+  --link: #8a6a0f;
+  --fill-bg: #fff3b0;
+  --fill-ink: #3d3200;
+  --focus: #1a5fd0;
+
+  --font: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111316;
+    --paper-soft: #1a1d21;
+    --ink: #eceef1;
+    --ink-soft: #a9b0ba;
+    --rule: #2a2f36;
+    --brand-bg: #000000;
+    --brand-gold: #d4af37;
+    --link: #e2c15a;
+    --fill-bg: #4a3f0a;
+    --fill-ink: #fff3b0;
+    --focus: #7db0ff;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ---------- 헤더 ---------- */
+.site-header {
+  background: var(--brand-bg);
+  color: #fff;
+  padding: 2.5rem 0 2rem;
+  border-bottom: 3px solid var(--brand-gold);
+}
+
+.site-header .app-name {
+  margin: 0 0 0.25rem;
+  color: var(--brand-gold);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site-header .meta {
+  margin: 0.75rem 0 0;
+  color: #b9bec6;
+  font-size: 0.9rem;
+}
+
+/* ---------- 요약 상자 ---------- */
+main { padding-top: 2rem; padding-bottom: 3rem; }
+
+.summary {
+  background: var(--paper-soft);
+  border-left: 4px solid var(--brand-gold);
+  border-radius: 0 6px 6px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.summary p { margin: 0 0 0.5rem; }
+
+.summary ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.summary li { margin: 0.2rem 0; }
+
+/* ---------- 목차 ---------- */
+.toc {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.toc h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.toc li { break-inside: avoid; }
+
+@media (max-width: 34rem) {
+  .toc ol { columns: 1; }
+}
+
+/* ---------- 본문 ---------- */
+.policy section {
+  margin-bottom: 2.25rem;
+}
+
+.policy h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.policy p { margin: 0 0 0.9rem; }
+
+.policy ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+.policy li { margin: 0.25rem 0; }
+
+.history { list-style: none; padding-left: 0; }
+
+.contact {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.4rem 1rem;
+  margin: 0;
+}
+
+.contact dt { color: var(--ink-soft); }
+.contact dd { margin: 0; }
+
+/* ---------- 링크 / 포커스 ---------- */
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ---------- 직접 채워야 하는 부분 표시 ----------
+   본인 정보를 넣은 뒤에는 HTML에서 class="fill" 을 지우면 됩니다. */
+.fill {
+  background: var(--fill-bg);
+  color: var(--fill-ink);
+  padding: 0 0.25em;
+  border-radius: 3px;
+}
+
+/* ---------- 푸터 ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 0 2.5rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.site-footer p { margin: 0; }
+
+/* ---------- 맨 위로 버튼 ---------- */
+.to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.to-top:hover { background: var(--paper-soft); }
+
+/* ---------- 인쇄 ---------- */
+@media print {
+  .to-top, .toc { display: none; }
+  .site-header { background: none; color: #000; border-bottom: 2px solid #000; }
+  .site-header .app-name, .site-header .meta { color: #000; }
+  .fill { background: none; color: inherit; }
+}
+
+/* ---------- 소제목, 표 (광고 항목 안내용) ---------- */
+.policy h3 {
+  margin: 1.25rem 0 0.4rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.policy table {
+  width: 100%;
+  min-width: 30rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.policy th,
+.policy td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.policy thead th {
+  background: var(--paper-soft);
+  font-weight: 700;
+}
